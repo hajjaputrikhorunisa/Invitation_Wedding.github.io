@@ -1167,7 +1167,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
         <p class="d-headline">Minggu, 07 Juni 2026</p>
         <p class="d-body">Pukul 10.00 – 12.00 WIB<br>Panti Asuhan Al-Yamin<br>Palembang, Sumatera Selatan</p>
       </div>
-      <div class="detail-card sr">
+      <!-- <div class="detail-card sr">
         <span class="d-icon">✨</span>
         <p class="d-title">Dress Code</p>
         <p class="d-headline">Dusty Blue &amp; Cream</p>
@@ -1177,7 +1177,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
           <div class="d-swatch" style="background:#9bb8cb"></div>
           <div class="d-swatch" style="background:#f7f4ef"></div>
         </div>
-      </div>
+      </div> -->
       <div class="detail-card sr">
         <span class="d-icon">💌</span>
         <p class="d-title">Amplop Digital</p>
@@ -1186,7 +1186,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
         <div class="amp-list">
           <div class="amp-item">
             <div class="amp-bank">BCA</div>
-            <div class="amp-name">Hajja Putri Khoirunis</div>
+            <div class="amp-name">Hajja Putri Khoirunisa</div>
             <div class="amp-row">
               <span class="amp-num" id="rek1">8435632854</span>
               <button class="amp-copy" onclick="copyRek('rek1', this)" title="Salin nomor rekening">&#x29C9;</button>
@@ -1277,7 +1277,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
     <div class="gold-divider sr"><span></span></div>
     <div class="rsvp-card sr">
       <div id="rsvpForm">
-        <p class="rsvp-note">Mohon konfirmasi kehadiran Anda sebelum<br><strong>30 November 2026</strong></p>
+        <p class="rsvp-note">Mohon konfirmasi kehadiran Anda sebelum<br><strong>06 Juni 2026</strong></p>
         <input class="rsvp-field" type="text" id="rsvpName" placeholder="Nama Lengkap Anda">
         <input class="rsvp-field" type="text" id="rsvpCount" placeholder="Jumlah Tamu (termasuk Anda)">
         <div class="rsvp-toggle">
@@ -1304,7 +1304,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
   <div class="closing-names sr">
     <em>Caca</em> &amp; <em>Andi</em>
   </div>
-  <p class="closing-date sr">Minggu, 20 Desember 2026 · Bandung, Jawa Barat</p>
+  <p class="closing-date sr">Minggu, 07 Juni 2026 · Palembang, Sumatera Selatan</p>
   <p class="closing-sign sr">With Love &amp; Joy</p>
 </section>
 
@@ -1315,21 +1315,27 @@ window.addEventListener('load', () => {
 });
 
 /* ── COUNTDOWN ── */
-const TARGET = new Date('2026-12-20T08:00:00');
+const TARGET = new Date('2026-06-07T08:00:00');
+
 function tick() {
   const now  = new Date();
-  let   diff = TARGET - now;
+  let diff = TARGET - now;
+
   if (diff < 0) diff = 0;
+
   const d = Math.floor(diff / 86400000);
   const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000)  / 60000);
-  const s = Math.floor((diff % 60000)    / 1000);
-  const pad = n => String(n).padStart(2,'0');
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+
+  const pad = n => String(n).padStart(2, '0');
+
   document.getElementById('cd-d').textContent = pad(d);
   document.getElementById('cd-h').textContent = pad(h);
   document.getElementById('cd-m').textContent = pad(m);
   document.getElementById('cd-s').textContent = pad(s);
 }
+
 tick();
 setInterval(tick, 1000);
 
