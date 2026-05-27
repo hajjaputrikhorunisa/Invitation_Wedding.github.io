@@ -128,10 +128,10 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 /* ══════════════════════════════════
    SCROLL REVEAL
 ══════════════════════════════════ */
-/* .sr { opacity:0; transform:translateY(36px); transition:opacity .8s var(--ease-out), transform .8s var(--ease-out); }
-.sr.from-left  { transform:translateX(-36px); }
-.sr.from-right { transform:translateX(36px); }
-.sr.vis { opacity:1; transform:translate(0); } */
+.sr { opacity:0; transform:translateY(36px); transition:opacity .85s var(--ease-out), transform .85s var(--ease-out); }
+.sr.from-left  { transform:translateX(-44px); }
+.sr.from-right { transform:translateX(44px); }
+.sr.vis { opacity:1; transform:translate(0); }
 
 /* ══════════════════════════════════
    COMMON SECTION HELPERS
@@ -645,34 +645,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
 }
 .tl-empty { min-height:20px; }
 
-/* ══════════════════════════════════
-   SECTION 6 – ENTOURAGE
-══════════════════════════════════ */
-#sec-6 { background:var(--white); }
-.ent-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
-  gap:1.5rem 2rem;
-  max-width:780px; margin:0 auto;
-}
-.ent-group { text-align:center; padding:1.5rem 1rem; }
-.ent-title {
-  font-family:'Cinzel', serif;
-  font-size:.58rem;
-  letter-spacing:4px;
-  color:var(--dusty);
-  text-transform:uppercase;
-  padding-bottom:.7rem;
-  margin-bottom:.8rem;
-  border-bottom:1px solid var(--ice);
-}
-.ent-names {
-  font-family:'Playfair Display', serif;
-  font-size:.92rem;
-  font-style:italic;
-  color:var(--text-mid);
-  line-height:2;
-}
+
 
 /* ══════════════════════════════════
    SECTION 7 – RSVP
@@ -824,15 +797,226 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
   text-transform:uppercase;
   position:relative; z-index:2;
 }
+
+/* ══════════════════════════════════
+   AMPLOP DIGITAL
+══════════════════════════════════ */
+.amp-list {
+  margin-top:1rem;
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+}
+.amp-item {
+  background:var(--ice);
+  border:1px solid var(--pale);
+  border-radius:14px;
+  padding:.85rem 1rem;
+  text-align:left;
+}
+.amp-bank {
+  font-family:'Cinzel', serif;
+  font-size:.55rem;
+  letter-spacing:3px;
+  color:var(--dusty);
+  text-transform:uppercase;
+  margin-bottom:.2rem;
+}
+.amp-name {
+  font-size:.75rem;
+  color:var(--text-mid);
+  margin-bottom:.4rem;
+}
+.amp-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.5rem;
+}
+.amp-num {
+  font-family:'Cinzel', serif;
+  font-size:1rem;
+  font-weight:600;
+  color:var(--navy);
+  letter-spacing:2px;
+}
+.amp-copy {
+  background:var(--navy-mid);
+  color:var(--gold);
+  border:none;
+  border-radius:8px;
+  padding:.3rem .6rem;
+  font-size:.85rem;
+  cursor:pointer;
+  transition:all .25s;
+  flex-shrink:0;
+}
+.amp-copy:hover { background:var(--steel); transform:scale(1.1); }
+.amp-copy.copied { background:var(--gold); color:var(--navy); }
+
+/* TOMBOL LOKASI */
+.loc-btn {
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  background:linear-gradient(135deg, var(--navy-mid), var(--steel));
+  color:var(--white);
+  text-decoration:none;
+  border-radius:14px;
+  padding:.85rem 1.8rem;
+  font-family:'Cinzel', serif;
+  font-size:.6rem;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  transition:transform .3s var(--ease-out), box-shadow .3s;
+  box-shadow:0 4px 18px rgba(14,31,46,.25);
+}
+.loc-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(14,31,46,.35); }
+
+/* ══════════════════════════════════
+   FLOATING PETALS CANVAS
+══════════════════════════════════ */
+#petals-canvas {
+  position:fixed; inset:0; z-index:3;
+  pointer-events:none;
+  opacity:.55;
+}
+
+/* ══════════════════════════════════
+   HERO PARALLAX
+══════════════════════════════════ */
+.hero-bg {
+  will-change:transform;
+  transition:transform .1s linear;
+}
+
+/* ══════════════════════════════════
+   GOLD DIVIDER SHIMMER
+══════════════════════════════════ */
+.gold-divider span {
+  animation: diamond-spin 4s ease-in-out infinite;
+}
+@keyframes diamond-spin {
+  0%,100% { transform:rotate(45deg) scale(1); box-shadow:0 0 0 0 rgba(201,169,110,0); }
+  50%      { transform:rotate(225deg) scale(1.5); box-shadow:0 0 12px 4px rgba(201,169,110,.45); }
+}
+
+/* ══════════════════════════════════
+   SECTION TITLE GRADIENT SHIMMER
+══════════════════════════════════ */
+.sec-title em {
+  background: linear-gradient(90deg, var(--steel) 0%, var(--gold) 40%, var(--steel) 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 4s linear infinite;
+}
+@keyframes text-shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ══════════════════════════════════
+   COUNTDOWN BOX GLOW PULSE
+══════════════════════════════════ */
+.cdown-box::before {
+  animation: bar-glow 3s ease-in-out infinite alternate;
+}
+@keyframes bar-glow {
+  from { opacity:.6; box-shadow:0 0 0 0 rgba(201,169,110,0); }
+  to   { opacity:1;  box-shadow:0 0 16px 2px rgba(201,169,110,.25); }
+}
+
+/* ══════════════════════════════════
+   COUPLE CARD HEART BEAT
+══════════════════════════════════ */
+.c-amp {
+  animation: heartbeat 2.2s ease-in-out infinite;
+}
+@keyframes heartbeat {
+  0%,100% { transform:scale(1);    text-shadow:0 0 0   rgba(201,169,110,0); }
+  15%     { transform:scale(1.18); text-shadow:0 0 24px rgba(201,169,110,.6); }
+  30%     { transform:scale(1);    }
+  45%     { transform:scale(1.10); text-shadow:0 0 16px rgba(201,169,110,.4); }
+  60%     { transform:scale(1);    }
+}
+
+/* ══════════════════════════════════
+   DETAIL CARD ICON FLOAT
+══════════════════════════════════ */
+.d-icon {
+  animation: icon-float 3s ease-in-out infinite;
+}
+.detail-card:nth-child(2) .d-icon { animation-delay:.5s; }
+.detail-card:nth-child(3) .d-icon { animation-delay:1s; }
+.detail-card:nth-child(4) .d-icon { animation-delay:1.5s; }
+@keyframes icon-float {
+  0%,100% { transform:translateY(0); }
+  50%     { transform:translateY(-6px); }
+}
+
+/* ══════════════════════════════════
+   TIMELINE DOT PULSE
+══════════════════════════════════ */
+.tl-dot {
+  animation: tl-glow 2.5s ease-in-out infinite;
+}
+@keyframes tl-glow {
+  0%,100% { box-shadow:0 0 0 6px rgba(201,169,110,.12); }
+  50%     { box-shadow:0 0 0 12px rgba(201,169,110,.25), 0 0 30px rgba(201,169,110,.2); }
+}
+
+/* ══════════════════════════════════
+   CLOSING NAMES GLOW
+══════════════════════════════════ */
+.closing-names {
+  animation: names-glow 4s ease-in-out infinite alternate;
+}
+@keyframes names-glow {
+  from { text-shadow:0 0 0 rgba(255,255,255,0); }
+  to   { text-shadow:0 0 40px rgba(255,255,255,.12), 0 0 80px rgba(201,169,110,.1); }
+}
+
+/* ══════════════════════════════════
+   SAVE DATE BIG NUMBER SHIMMER
+══════════════════════════════════ */
+.save-date-big {
+  animation: date-flicker 6s ease-in-out infinite;
+}
+@keyframes date-flicker {
+  0%,90%,100% { opacity:1; }
+  92%          { opacity:.85; }
+  94%          { opacity:1; }
+}
+
+/* ══════════════════════════════════
+   SCROLL CUE ARROW (hidden text, keep arrow)
+══════════════════════════════════ */
+.scroll-cue {
+  position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.5rem;
+  opacity:0; animation:fadeUp .9s var(--ease-out) 3.2s forwards;
+  z-index:10;
+}
+.scroll-cue .arr {
+  width:20px; height:20px;
+  border-right:1.5px solid rgba(155,184,203,.7);
+  border-bottom:1.5px solid rgba(155,184,203,.7);
+  transform:rotate(45deg);
+  animation:bounce-arr 1.8s ease-in-out infinite;
+}
 </style>
 </head>
 <body>
+
+<canvas id="petals-canvas"></canvas>
 
 <!-- LOADER -->
 <div id="loader">
   <div class="loader-wrap">
     <div class="loader-ring"></div>
-    <span class="loader-monogram">H&A</span>
+    <span class="loader-monogram">C&A</span>
   </div>
   <p class="loader-txt">Memuat Undangan...</p>
 </div>
@@ -866,18 +1050,18 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
     <p class="hero-tag">Undangan Pernikahan</p>
     <p class="hero-invite">Dengan penuh syukur dan kebahagiaan, kami mengundang kehadiran Anda</p>
     <div class="hero-names">
-      <span class="name">Hajja</span>
+      <span class="name">Caca</span>
       <span class="amp">&</span>
       <span class="name">Andi</span>
     </div>
     <div class="hero-date-row">
       <div class="date-chunk">
-        <span class="big">20</span>
+        <span class="big">07</span>
         <span class="sm">Tanggal</span>
       </div>
       <div class="vbar"></div>
       <div class="date-chunk">
-        <span class="big">Des</span>
+        <span class="big">Jun</span>
         <span class="sm">Bulan</span>
       </div>
       <div class="vbar"></div>
@@ -886,13 +1070,9 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
         <span class="sm">Tahun</span>
       </div>
     </div>
-    <p class="hero-loc">Bandung, Jawa Barat</p>
+    <p class="hero-loc">Palembang, Sumatera Selatan</p>
   </div>
 
-  <div class="scroll-cue">
-    <span>Scroll</span>
-    <div class="arr"></div>
-  </div>
 </section>
 
 <!-- ════════════════════ SAVE THE DATE ════════════════════ -->
@@ -906,8 +1086,8 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
       <div class="save-card-inner">
         <p class="save-eyebrow">The Wedding of</p>
         <p class="save-names"><em>Hajja Putri Khoirunisa</em><br>&amp;<br><em>Andi Dipo Aryo</em></p>
-        <div class="save-date-big">20·12·2026</div>
-        <p class="save-location">Bandung City · Jawa Barat, Indonesia</p>
+        <div class="save-date-big">07·06·2026</div>
+        <p class="save-location">Palembang · Sumatera Selatan, Indonesia</p>
       </div>
     </div>
   </div>
@@ -949,9 +1129,9 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
     <div class="couple-wrap">
       <div class="c-card sr from-left">
         <div class="c-avatar">👰</div>
-        <h3 class="c-name">Hajja</h3>
+        <h3 class="c-name">Caca</h3>
         <p class="c-fullname">Hajja Putri Khoirunisa</p>
-        <p class="c-parents">Putri pertama dari<br><strong>Bapak XXX</strong><br>dan <strong>Ibu XXX</strong></p>
+        <p class="c-parents">Putri pertama dari<br><strong>Bapak M.Isa Hasymi</strong><br>dan <strong>Ibu Aisyah Hamid</strong></p>
       </div>
       <div class="c-divider sr">
         <div class="c-vl"></div>
@@ -962,7 +1142,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
         <div class="c-avatar">🤵</div>
         <h3 class="c-name">Andi</h3>
         <p class="c-fullname">Andi Dipo Aryo</p>
-        <p class="c-parents">Putra pertama dari<br><strong>Bapak XXX</strong><br>dan <strong>Ibu XXX</strong></p>
+        <p class="c-parents">Putra pertama dari<br><strong>Bapak Anwar Suwarsono (Alm)</strong><br>dan <strong>Ibu Yuliana</strong></p>
       </div>
     </div>
   </div>
@@ -978,14 +1158,14 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
       <div class="detail-card sr">
         <span class="d-icon">💍</span>
         <p class="d-title">Akad Nikah</p>
-        <p class="d-headline">Minggu, 20 Desember 2026</p>
-        <p class="d-body">Pukul 08.00 – 10.00 WIB<br>Masjid/Gedung<br>Bandung, Jawa Barat</p>
+        <p class="d-headline">Minggu, 07 Juni 2026</p>
+        <p class="d-body">Pukul 07.00 – 09.00 WIB<br>Panti Asuhan Al-Yamin<br>Palembang, Sumatera Selatan</p>
       </div>
       <div class="detail-card sr">
         <span class="d-icon">🥂</span>
         <p class="d-title">Resepsi</p>
-        <p class="d-headline">Minggu, 20 Desember 2026</p>
-        <p class="d-body">Pukul 11.00 – 17.00 WIB<br>Ballroom Hotel XXX<br>Jl. XXX, Bandung</p>
+        <p class="d-headline">Minggu, 07 Juni 2026</p>
+        <p class="d-body">Pukul 10.00 – 12.00 WIB<br>Panti Asuhan Al-Yamin<br>Palembang, Sumatera Selatan</p>
       </div>
       <div class="detail-card sr">
         <span class="d-icon">✨</span>
@@ -999,10 +1179,46 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
         </div>
       </div>
       <div class="detail-card sr">
-        <span class="d-icon">🎁</span>
-        <p class="d-title">Hadiah</p>
-        <p class="d-headline">Kehadiran Anda Sudah Cukup</p>
-        <p class="d-body">Bila berkenan, amplop dapat diserahkan kepada panitia yang bertugas</p>
+        <span class="d-icon">💌</span>
+        <p class="d-title">Amplop Digital</p>
+        <p class="d-headline">Kirim Doa &amp; Kasih Sayang</p>
+        <p class="d-body">Bila berkenan memberikan hadiah, berikut rekening kami:</p>
+        <div class="amp-list">
+          <div class="amp-item">
+            <div class="amp-bank">BCA</div>
+            <div class="amp-name">Hajja Putri Khoirunis</div>
+            <div class="amp-row">
+              <span class="amp-num" id="rek1">8435632854</span>
+              <button class="amp-copy" onclick="copyRek('rek1', this)" title="Salin nomor rekening">&#x29C9;</button>
+            </div>
+          </div>
+          <div class="amp-item">
+            <div class="amp-bank">BCA</div>
+            <div class="amp-name">Andi Dipo Aryo</div>
+            <div class="amp-row">
+              <span class="amp-num" id="rek2">7000659791</span>
+              <button class="amp-copy" onclick="copyRek('rek2', this)" title="Salin nomor rekening">&#x29C9;</button>
+            </div>
+          </div>
+          <!-- <div class="amp-item">
+            <div class="amp-bank">SeaBank</div>
+            <div class="amp-name">Hajja Putri Khouirunisa</div>
+            <div class="amp-row">
+              <span class="amp-num" id="rek3">901361569642</span>
+              <button class="amp-copy" onclick="copyRek('rek3', this)" title="Salin nomor rekening">&#x29C9;</button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="detail-card sr" style="grid-column:1/-1; max-width:420px; margin:0 auto;">
+        <span class="d-icon">📍</span>
+        <p class="d-title">Lokasi Acara</p>
+        <p class="d-headline">Panti Asuhan Al-Yamin</p>
+        <p class="d-body" style="margin-bottom:1.2rem;">Palembang, Sumatera Selatan</p>
+        <a class="loc-btn" href="https://maps.app.goo.gl/p97M8FZAbnM54j8w5?g_st=ic" target="_blank" rel="noopener">
+          🗺️ &nbsp;Buka di Google Maps
+        </a>
       </div>
     </div>
   </div>
@@ -1018,73 +1234,40 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
       <div class="tl-axis"></div>
 
       <div class="tl-item sr">
-        <div class="tl-left"><div class="tl-bubble"><p class="tl-time">07.00 WIB</p><p class="tl-event">Persiapan & Dekorasi</p></div></div>
+        <div class="tl-left"><div class="tl-bubble"><p class="tl-time">06.00 WIB</p><p class="tl-event">Persiapan & Dekorasi</p></div></div>
         <div class="tl-dot">🕖</div>
         <div class="tl-right tl-empty"></div>
       </div>
       <div class="tl-item sr">
         <div class="tl-left tl-empty"></div>
         <div class="tl-dot">💍</div>
-        <div class="tl-right"><div class="tl-bubble"><p class="tl-time">08.00 WIB</p><p class="tl-event">Ijab Kabul – Akad Nikah</p></div></div>
+        <div class="tl-right"><div class="tl-bubble"><p class="tl-time">07.00 WIB</p><p class="tl-event">Ijab Kabul – Akad Nikah</p></div></div>
       </div>
       <div class="tl-item sr">
-        <div class="tl-left"><div class="tl-bubble"><p class="tl-time">09.30 WIB</p><p class="tl-event">Sesi Foto Resmi</p></div></div>
+        <div class="tl-left"><div class="tl-bubble"><p class="tl-time">09.00 WIB</p><p class="tl-event">Sesi Foto Resmi</p></div></div>
         <div class="tl-dot">📷</div>
         <div class="tl-right tl-empty"></div>
       </div>
       <div class="tl-item sr">
         <div class="tl-left tl-empty"></div>
         <div class="tl-dot">🎊</div>
-        <div class="tl-right"><div class="tl-bubble"><p class="tl-time">11.00 WIB</p><p class="tl-event">Resepsi Dibuka</p></div></div>
+        <div class="tl-right"><div class="tl-bubble"><p class="tl-time">10.00 WIB</p><p class="tl-event">Resepsi Dibuka</p></div></div>
       </div>
       <div class="tl-item sr">
-        <div class="tl-left"><div class="tl-bubble"><p class="tl-time">12.00 WIB</p><p class="tl-event">Makan Siang & Hiburan</p></div></div>
+        <div class="tl-left"><div class="tl-bubble"><p class="tl-time">11.00 WIB</p><p class="tl-event">Makan Siang & Hiburan</p></div></div>
         <div class="tl-dot">🍽️</div>
         <div class="tl-right tl-empty"></div>
       </div>
       <div class="tl-item sr">
         <div class="tl-left tl-empty"></div>
         <div class="tl-dot">🌙</div>
-        <div class="tl-right"><div class="tl-bubble"><p class="tl-time">17.00 WIB</p><p class="tl-event">Penutupan & Doa</p></div></div>
+        <div class="tl-right"><div class="tl-bubble"><p class="tl-time">12.00 WIB</p><p class="tl-event">Penutupan & Doa</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════ ENTOURAGE ════════════════════ -->
-<section id="sec-6">
-  <div class="sec-wrap">
-    <p class="eyebrow sr">Keluarga & Sahabat</p>
-    <h2 class="sec-title sr">Entourage</h2>
-    <div class="gold-divider sr"><span></span></div>
-    <div class="ent-grid">
-      <div class="ent-group sr">
-        <h4 class="ent-title">Best Man</h4>
-        <p class="ent-names">Daffa Ardiansyah<br>Farhan Hidayat</p>
-      </div>
-      <div class="ent-group sr">
-        <h4 class="ent-title">Maid of Honor</h4>
-        <p class="ent-names">Nabila Putri<br>Rina Anggraini</p>
-      </div>
-      <div class="ent-group sr">
-        <h4 class="ent-title">Groomsmen</h4>
-        <p class="ent-names">Bagas Pratama<br>Kevin Santoso<br>Wahyu Nugroho</p>
-      </div>
-      <div class="ent-group sr">
-        <h4 class="ent-title">Bridesmaids</h4>
-        <p class="ent-names">Anisa Fitria<br>Dina Maharani<br>Eka Lestari</p>
-      </div>
-      <div class="ent-group sr">
-        <h4 class="ent-title">Sponsor Utama</h4>
-        <p class="ent-names">Keluarga H. Ahmad Yusuf<br>Keluarga H. Bambang S.</p>
-      </div>
-      <div class="ent-group sr">
-        <h4 class="ent-title">Ring & Flower</h4>
-        <p class="ent-names">Arif Gunawan – Ring Bearer<br>Citra Dewi – Flower Girl</p>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ════════════════════ RSVP ════════════════════ -->
 <section id="sec-7">
@@ -1119,7 +1302,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
     <cite>QS. Ar-Rum : 21</cite>
   </blockquote>
   <div class="closing-names sr">
-    <em>Hajja</em> &amp; <em>Andi</em>
+    <em>Caca</em> &amp; <em>Andi</em>
   </div>
   <p class="closing-date sr">Minggu, 20 Desember 2026 · Bandung, Jawa Barat</p>
   <p class="closing-sign sr">With Love &amp; Joy</p>
@@ -1220,6 +1403,103 @@ function sendRsvp() {
   document.getElementById('rsvpMsg').textContent = msg;
   el.style.display = 'block';
 }
+
+/* ── COPY REKENING ── */
+function copyRek(id, btn) {
+  const num = document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(num).then(() => {
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✓';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerHTML = orig;
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = num;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.innerHTML = '✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '⧉'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+/* ── FLOATING PETALS ── */
+(function() {
+  const canvas = document.getElementById('petals-canvas');
+  const ctx    = canvas.getContext('2d');
+  const W = () => canvas.width  = window.innerWidth;
+  const H = () => canvas.height = window.innerHeight;
+  W(); H();
+  window.addEventListener('resize', () => { W(); H(); });
+
+  const COLORS = [
+    'rgba(201,169,110,VAL)',
+    'rgba(155,184,203,VAL)',
+    'rgba(232,207,160,VAL)',
+    'rgba(205,221,232,VAL)',
+  ];
+  const N = 38;
+  const petals = Array.from({length: N}, (_, i) => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    r: 3 + Math.random() * 5,
+    speed: 0.3 + Math.random() * 0.7,
+    drift: (Math.random() - 0.5) * 0.8,
+    spin:  (Math.random() - 0.5) * 0.04,
+    angle: Math.random() * Math.PI * 2,
+    wobble: Math.random() * Math.PI * 2,
+    color: COLORS[i % COLORS.length],
+    opacity: 0.15 + Math.random() * 0.45,
+  }));
+
+  function drawPetal(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.angle);
+    const col = p.color.replace('VAL', p.opacity.toFixed(2));
+    ctx.fillStyle = col;
+    ctx.beginPath();
+    // simple ellipse petal
+    ctx.ellipse(0, 0, p.r, p.r * 1.9, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    petals.forEach(p => {
+      p.wobble += 0.018;
+      p.x += p.drift + Math.sin(p.wobble) * 0.4;
+      p.y += p.speed;
+      p.angle += p.spin;
+      if (p.y > canvas.height + 20) {
+        p.y = -20;
+        p.x = Math.random() * canvas.width;
+      }
+      if (p.x < -20) p.x = canvas.width + 20;
+      if (p.x > canvas.width + 20) p.x = -20;
+      drawPetal(p);
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ── HERO PARALLAX ── */
+(function(){
+  const bg = document.querySelector('.hero-bg');
+  if (!bg) return;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    bg.style.transform = `translateY(${y * 0.28}px)`;
+  }, {passive: true});
+})();
+
 </script>
 </body>
 </html>
