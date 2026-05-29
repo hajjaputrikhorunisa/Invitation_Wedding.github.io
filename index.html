@@ -870,8 +870,15 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
   text-transform:uppercase;
   transition:transform .3s var(--ease-out), box-shadow .3s;
   box-shadow:0 4px 18px rgba(14,31,46,.25);
+  cursor:pointer;
+  pointer-events:auto;
+  position:relative;
+  z-index:10;
+  -webkit-tap-highlight-color:rgba(201,169,110,.2);
+  touch-action:manipulation;
 }
 .loc-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(14,31,46,.35); }
+.loc-btn:active { transform:scale(.97); }
 
 /* ══════════════════════════════════
    FLOATING PETALS CANVAS
@@ -1131,7 +1138,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
         <div class="c-avatar">👰</div>
         <h3 class="c-name">Caca</h3>
         <p class="c-fullname">Hajja Putri Khoirunisa</p>
-        <p class="c-parents">Putri pertama dari<br><strong>Bapak M.Isa Hasymi</strong><br>dan <strong>Ibu Aisyah Hamid</strong></p>
+        <p class="c-parents">Putri pertama dari<br><strong>Bapak M.Isa Hasym</strong><br>dan <strong>Ibu Aisyah Hamid</strong></p>
       </div>
       <div class="c-divider sr">
         <div class="c-vl"></div>
@@ -1216,7 +1223,7 @@ button { cursor:pointer; border:none; background:none; font-family:inherit; }
         <p class="d-title">Lokasi Acara</p>
         <p class="d-headline">Panti Asuhan Al-Yamin</p>
         <p class="d-body" style="margin-bottom:1.2rem;">Palembang, Sumatera Selatan</p>
-        <a class="loc-btn" href="https://maps.app.goo.gl/p97M8FZAbnM54j8w5?g_st=ic" target="_blank" rel="noopener">
+        <a class="loc-btn" href="https://maps.app.goo.gl/p97M8FZAbnM54j8w5" target="_blank" rel="noopener noreferrer" onclick="openMaps(event)">
           🗺️ &nbsp;Buka di Google Maps
         </a>
       </div>
@@ -1408,6 +1415,18 @@ function sendRsvp() {
     : `Terima kasih atas konfirmasinya, ${name}. Doa terbaik kami selalu menyertai Anda. 🌸`;
   document.getElementById('rsvpMsg').textContent = msg;
   el.style.display = 'block';
+}
+
+/* ── OPEN MAPS ── */
+function openMaps(e) {
+  e.preventDefault();
+  const url = 'https://maps.app.goo.gl/p97M8FZAbnM54j8w5';
+  // Try opening in new tab/window; fallback for mobile browsers
+  const win = window.open(url, '_blank', 'noopener,noreferrer');
+  if (!win || win.closed || typeof win.closed === 'undefined') {
+    // Popup blocked or mobile — navigate in same tab
+    window.location.href = url;
+  }
 }
 
 /* ── COPY REKENING ── */
